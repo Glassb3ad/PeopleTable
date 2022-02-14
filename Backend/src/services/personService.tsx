@@ -1,33 +1,50 @@
 import { Person, NewPerson  } from "../types";
 import { parseAge, parseString } from "../utils";
+require('dotenv').config();
+import peopleModel from "../models/people";
 import {v1} from 'uuid'
 
 let people: Person[] = []; 
+let peopleId: String
+
+export const InitializePeople = async () => {
+    const peopleDB: {id: string, people: Person[]} = (await peopleModel.find({}))[0]
+    if(peopleDB) {
+        people = peopleDB.people
+        peopleId = peopleDB.id
+    }
+}
+const updatePeople = async (newPeople: Person[]) => {
+    people = newPeople
+    const result = await peopleModel.findByIdAndUpdate(peopleId, {people: newPeople}, { new: true });
+    console.log(result)
+} 
 
 const getPeople = () => people
-
 const getPerson = (id: string) => people.find(a => a.id === id)
 
 const addPerson = (newPerson: NewPerson): Person[] => {
     const personComplete: Person = createPerson(newPerson) 
-    people = people.concat([personComplete])
+    updatePeople(people.concat([personComplete]))
     return people
 }
 const deletePerson = (id: string): Person[] => {
-    people = people.filter(a => a.id !== id); 
+    const newPeople = people.filter(a => a.id !== id);
+    updatePeople(newPeople) 
     return people;
 }
 const editPerson = (newPerson: Person ): Person[] => {
     const personChecked = checkPerson(newPerson); 
     //Tests whether person with give id exists before editing data
     if(people.find(a => a.id === personChecked.id)){ 
-        people = people.map(a => {
+        const newPeople = people.map(a => {
             if (a.id === personChecked.id) return personChecked;
             else return a;
         })
+        updatePeople(newPeople)
+        return people;
     }
     else {throw new Error('No person with give id exists')} 
-    return people;
 }
 const checkPerson = (uncheckedPerson: Person): Person => {
     const checkedPerson: Person = {

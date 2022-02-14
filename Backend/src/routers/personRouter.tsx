@@ -33,9 +33,8 @@ personRouter.put('/',(req, res) => {
     try{
         res.status(200).send(personService.editPerson(req.body));
     }
-    catch (error:any){
-        if(error.message === "No person with give id exists") res.status(404).send(error) 
-        else res.status(400).send(error)
+    catch (error:any){ 
+        res.status(400).send(error)
     }
 });
 
