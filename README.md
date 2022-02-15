@@ -5,7 +5,8 @@ Käyttöohje:
 Ohjelman tuotantoversion käynnistäminen:
 -mene kansioon backend
 -npm install
--npm start
+-npm tsc (kääntää typescriptin javascriptiksi)
+-npm start (käynnistää ohjelman)
 
 Napeista Delete, Edit ja Add voi muokata taulukon sisältöä. 
 Otsikkorivin nappeja "First name", "Last name" ja "Age" voi käyttää taulukon järjestämiseen napin nimeämän ominaisuuden perusteella.
