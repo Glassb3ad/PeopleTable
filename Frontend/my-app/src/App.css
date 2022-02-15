@@ -100,3 +100,7 @@ tr {
 #saveButtonDisabled:hover {
     border: black
 }
+#cancelDeleteButton {
+    color: azure;
+    background-color: #bfcc03
+}

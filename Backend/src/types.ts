@@ -4,4 +4,4 @@ export interface Person {
     lastName: string,
     age: number,
 }
-export type NewPerson =  Omit<Person, 'id'>
+export type NewPerson =  Omit<Person, "id">

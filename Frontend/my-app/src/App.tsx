@@ -1,21 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import AddPersonForm from './components/AddPersonForm';
-import PeopleTable from './components/PeopleTable';
-import peopleService from './services/peopleService';
-import { Person } from './types';
+import React, { useEffect, useState } from "react";
+import PeopleTable from "./components/PeopleTable";
+import peopleService from "./services/peopleService";
+import { Person } from "./types";
 
 function App() {
-  const [people, setPeople]:[Person[], any] = useState([])
+  const [people, setPeople]:[Person[], any] = useState([]);
   const getPeoplefromServer = async () => { 
-    const newPeople = await peopleService.getPeople()
-    console.log(newPeople)
-    setPeople(newPeople)
+    const newPeople = await peopleService.getPeople();
+    console.log(newPeople);
+    setPeople(newPeople);
   };
   useEffect(() => {
-    getPeoplefromServer()
+    getPeoplefromServer();
   }, []);
-  console.log("people from app: ")
-  console.log(people)
+  console.log("people from app: ");
+  console.log(people);
   return (
     <div>
       <div className="title">
