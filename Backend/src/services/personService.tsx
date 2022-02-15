@@ -15,8 +15,7 @@ export const InitializePeople = async () => {
 };
 const updatePeople = async (newPeople: Person[]) => {
   people = newPeople;
-  const result = await peopleModel.findByIdAndUpdate(peopleId, {people: newPeople}, { new: true });
-  console.log(result);
+  await peopleModel.findByIdAndUpdate(peopleId, {people: newPeople}, { new: true });
 }; 
 
 const getPeople = () => people;

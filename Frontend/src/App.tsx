@@ -7,14 +7,11 @@ function App() {
   const [people, setPeople]:[Person[], any] = useState([]);
   const getPeoplefromServer = async () => { 
     const newPeople = await peopleService.getPeople();
-    console.log(newPeople);
     setPeople(newPeople);
   };
   useEffect(() => {
     getPeoplefromServer();
   }, []);
-  console.log("people from app: ");
-  console.log(people);
   return (
     <div>
       <div className="title">

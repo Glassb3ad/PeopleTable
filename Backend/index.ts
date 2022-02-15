@@ -11,6 +11,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
+app.use(express.static("build"));
 app.use("/api/people",personRouter);
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

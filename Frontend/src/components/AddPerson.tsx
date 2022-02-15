@@ -21,7 +21,6 @@ const AddPerson = ({setPeople}: {people: Person[], setPeople: any}) => {
       lastName,
       age: Number(age)
     };
-    console.log(newPerson);
     const people = await peopleService.addPerson(newPerson);
     setPeople(people);
     reset();

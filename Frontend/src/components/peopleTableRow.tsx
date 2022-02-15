@@ -28,7 +28,6 @@ const PeopleTableRow = ({person, onEdit, setOnEdit, people, setPeople}:{person: 
       age: Number(age)
     };
     const newPeople = people.map(a => a.id === newPerson.id ? newPerson : a );
-    console.log(newPeople);
     setPeople(newPeople);
     peopleService.savePerson(newPerson);
     cancel();

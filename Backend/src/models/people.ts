@@ -1,6 +1,5 @@
 const url = process.env.DB as string;
 import mongoose from "mongoose";
-console.log(url);
 console.log("connecting to MongoDB");
 mongoose.connect(url)
   .then(_result => {

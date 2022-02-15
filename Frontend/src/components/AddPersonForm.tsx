@@ -19,12 +19,10 @@ const AddPersonForm = ({setPeople }:{people: Person[], setPeople: any}) => {
       lastName,
       age: Number(age)
     };
-    console.log(newPerson);
     const people = await peopleService.addPerson(newPerson);
     setPeople(people);
     reset();
   };
-  console.log((firstName !== "" && lastName !== "" && age !== ""));
   return(
     <div>
       <h2>Add a new person</h2>
