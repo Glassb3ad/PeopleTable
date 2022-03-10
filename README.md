@@ -13,6 +13,8 @@ Ohjelman tuotantoversion käynnistäminen:
 
 -npm install
 
+-Aseta tarvittavat ympäristömuuttujat
+
 -npm tsc (kääntää typescriptin javascriptiksi)
 
 -npm start (käynnistää ohjelman)
