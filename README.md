@@ -9,8 +9,12 @@ Otsikkorivin nappeja "First name", "Last name" ja "Age" voi käyttää taulukon 
 Asennus:
 Ohjelman tuotantoversion käynnistäminen:
 -mene kansioon backend
+
 -npm install
+
 -npm tsc (kääntää typescriptin javascriptiksi)
+
 -npm start (käynnistää ohjelman)
+
 
 Ohjelma on toteutetukseen on käytetty Typescript -ohjelmointikieltä, React ja Node kirjastoja sekä MongoDB tietokantaa.
